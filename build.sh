@@ -6,6 +6,11 @@ PROJECTS=$(ls -d */)
 # Iterate over each one
 for dir in $PROJECTS; do
 
+  # Skip polars folders (too big for labs)
+  if [[ $dir == *"polars"* ]]; then
+    continue
+  fi
+
   # Only process if there is a Cargo.toml
   if [ -f "$dir/Cargo.toml" ]; then
 
